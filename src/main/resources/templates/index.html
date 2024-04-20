@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Experiment with HTMX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="text-center">
+    <h1 class="text-2xl font-bold my-5">UI with HTMX</h1>
+    <button
+        th:hx-get="@{/users}"
+        hx-target="#users"
+        hx-indicator="#spinner"
+        class="bg-green-400 text-white py-1 px-3 my-5 rounded-lg"
+    >
+        Fetch Users
+    </button>
+    <span class="htmx-indicator" id="spinner">
+        <img th:src="@{/images/spinner.gif}" alt="Loading" class="m-auto h-10"/>
+    </span>
+</div>
+<div id="users"></div>
+</body>
+</html>
